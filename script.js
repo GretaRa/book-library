@@ -5,53 +5,85 @@ function Book(title, author, pages, read){
     this.author = author;
     this.pages = pages;
     this.read = read;
-    return;
 }
 
-function addBookToLibrary(title, author, pages, read) {
-  myLibrary.push(new Book(title, author, pages, read));
-  return;
+function addBookToLibrary() {
+  myLibrary.push(new Book(
+    document.getElementById('title').value, 
+    document.getElementById('author').value, 
+    document.getElementById('pages').value,
+    document.querySelector('input[name="read"]:checked').value
+  ));
+  displayBook()
   }
 
-addBookToLibrary('title1','author1','22','yes');
-addBookToLibrary('title2', 'author2', '55', 'no');
-console.log(myLibrary);
-
+//Container 
 const container = document.querySelector('.container');
 
 
+// function displayBook(){
+//   for (var i = 0; i < myLibrary.length; i++) {
+
+//     const element = document.createElement('div');
+//     element.className = 'bookCard';
+
+//     const title = document.createElement('h2');
+//     title.className = 'title';
+//     title.textContent = myLibrary[ i ].title;
+//     element.appendChild(title);
+
+//     const author = document.createElement('h3');
+//     author.className = 'author';
+//     author.textContent = myLibrary[ i ].author;
+//     element.appendChild(author);
+
+//     const pages = document.createElement('h3');
+//     pages.className = 'pages';
+//     pages.textContent = `${myLibrary[i].pages} pages`;
+//     element.appendChild(pages);
+
+//     const readStatus = document.createElement('h3');
+//     readStatus.className = 'readStatus';
+//     readStatus.textContent = myLibrary[ i ].read;
+//     element.appendChild(readStatus);
+
+//     container.appendChild( element );
+//   }
+// }
+
 function displayBook(){
-  for (var i = 0; i < myLibrary.length; i++) {
 
-    const element = document.createElement('div');
-    element.className = 'bookCard';
+  const element = document.createElement('div');
+  element.className = 'bookCard';
 
+  const title = document.createElement('h2');
+  title.className = 'title';
+  title.textContent = document.getElementById('title').value;
+  element.appendChild(title);
 
-    const title = document.createElement('h2');
-    title.className = 'title';
-    title.textContent = myLibrary[ i ].title;
-    element.appendChild(title);
+  const author = document.createElement('h3');
+  author.className = 'author';
+  author.textContent = document.getElementById('author').value;
+  element.appendChild(author);
 
-    const author = document.createElement('h3');
-    author.className = 'author';
-    author.textContent = myLibrary[ i ].author;
-    element.appendChild(author);
+  const pages = document.createElement('h3');
+  pages.className = 'pages';
+  pages.textContent = `${document.getElementById('pages').value} pages`;
+  element.appendChild(pages);
 
-    const pages = document.createElement('h3');
-    pages.className = 'pages';
-    pages.textContent = myLibrary[ i ].pages + ' pages';
-    element.appendChild(pages);
+  const readStatus = document.createElement('h3');
+  readStatus.className = 'readStatus';
+  readStatus.textContent = document.querySelector('input[name="read"]:checked').value;
+  element.appendChild(readStatus);
 
-    const readStatus = document.createElement('h3');
-    readStatus.className = 'readStatus';
-    readStatus.textContent = myLibrary[ i ].read;
-    element.appendChild(readStatus);
+  container.appendChild( element );
 
-
-    container.appendChild( element );
-
-    
-  }
 }
 
-displayBook();
+function openTheForm() {
+  document.getElementById("popupForm").style.display = "block";
+}
+
+function closeTheForm() {
+  document.getElementById("popupForm").style.display = "none";
+}
