@@ -1,3 +1,10 @@
+//TODO
+//Fix read status(change to checkbox?)
+//add checkbox to change read status
+//add style to form
+//add delete book button
+
+
 //Select DOM
 const bookGrid = document.querySelector('.book-grid');
 const form = document.querySelector('.formContainer');
@@ -18,7 +25,7 @@ function addBookToLibrary() {
       title.value, 
       author.value, 
       pages.value,
-      document.querySelector('input[name="read"]:checked').value
+      read.value
     ));
     closeTheForm()
     displayBooks();
@@ -68,4 +75,13 @@ function openTheForm() {
 
 function closeTheForm() {
   document.getElementById("popupForm").style.display = "none";
+  displayEmpty()
+}
+
+function displayEmpty(){
+  if (myLibrary.length !== 0){
+  document.getElementById("empty").style.display = "none";
+  } else {
+    document.getElementById("empty").style.display = "block";
+  }
 }

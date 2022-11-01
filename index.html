@@ -6,11 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500&display=swap" rel="stylesheet">
     <title>Library</title>
 </head>
 <body>
+    <header>
+            <h1>My Library</h1>
+    </header>
     <div class="container">
-        <button class="newBookBtn" onclick="openTheForm()">New Book</button>
+        <button class="newBookBtn" onclick="openTheForm()">+</button>
         <div class="AddNewPopup">
             <div class="formPopup" id="popupForm">
                 <form method="post" class="formContainer">
@@ -29,9 +35,9 @@
                     <input type="text" id="pages" placeholder="202" name="pages" required>
                     <fieldset>
                         <legend><strong>Have you read this book?</strong></legend>
-                        <input type="radio" id="read" name="read" value="Yes" required>
+                        <input type="radio" id="read" name="read" value="Read" required>
                         <label for="read">Yes</label>
-                        <input type="radio" id="read" name="read" value="No" required>
+                        <input type="radio" id="read" name="read" value="Not read" required>
                         <label for="read">No</label>
                         <button type="submit" class="btn">Add</button>
                         <button type="button" class="btn cancel" onclick="closeTheForm()">Close</button>
@@ -39,7 +45,13 @@
                 </form>
             </div>
         </div>
-        <div class="book-grid"></div>
+        <div class="content">
+            <p id="empty">The Library is empty</p>
+            <div class="book-grid"></div>
+        </div>
     </div>
+    <footer>
+        <p>Designed and coded by Greta Rakauskaite &copy 2022</p>
+    </footer>
 </body>
 </html>
