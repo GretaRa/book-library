@@ -13,7 +13,7 @@
         <button class="newBookBtn" onclick="openTheForm()">New Book</button>
         <div class="AddNewPopup">
             <div class="formPopup" id="popupForm">
-                <form action="#" class="formContainer">
+                <form method="post" class="formContainer">
                     <h2>Enter book details:</h2>
                     <label for="title">
                     <strong>Title</strong>
@@ -33,12 +33,13 @@
                         <label for="read">Yes</label>
                         <input type="radio" id="read" name="read" value="No" required>
                         <label for="read">No</label>
-                        <button type="submit" class="btn" onclick="addBookToLibrary()">Add</button>
+                        <button type="submit" class="btn">Add</button>
                         <button type="button" class="btn cancel" onclick="closeTheForm()">Close</button>
                     </fieldset>
                 </form>
             </div>
         </div>
+        <div class="book-grid"></div>
     </div>
 </body>
 </html>

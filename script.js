@@ -1,3 +1,7 @@
+//Select DOM
+const bookGrid = document.querySelector('.book-grid');
+const form = document.querySelector('.formContainer');
+
 let myLibrary = [];
 
 function Book(title, author, pages, read){
@@ -8,67 +12,46 @@ function Book(title, author, pages, read){
 }
 
 function addBookToLibrary() {
-  myLibrary.push(new Book(
-    document.getElementById('title').value, 
-    document.getElementById('author').value, 
-    document.getElementById('pages').value,
-    document.querySelector('input[name="read"]:checked').value
-  ));
-  displayBook()
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let book = myLibrary.push(new Book(
+      title.value, 
+      author.value, 
+      pages.value,
+      document.querySelector('input[name="read"]:checked').value
+    ));
+    closeTheForm()
+    displayBooks();
+    form.reset();
+  })
+}
+addBookToLibrary();
+
+function displayBooks(){
+  bookGrid.innerHTML = ''
+  for (let i = 0; i < myLibrary.length; i++){
+    createBookCard(myLibrary[i]);
   }
+}
 
-//Container 
-const container = document.querySelector('.container');
-
-
-// function displayBook(){
-//   for (var i = 0; i < myLibrary.length; i++) {
-
-//     const element = document.createElement('div');
-//     element.className = 'bookCard';
-
-//     const title = document.createElement('h2');
-//     title.className = 'title';
-//     title.textContent = myLibrary[ i ].title;
-//     element.appendChild(title);
-
-//     const author = document.createElement('h3');
-//     author.className = 'author';
-//     author.textContent = myLibrary[ i ].author;
-//     element.appendChild(author);
-
-//     const pages = document.createElement('h3');
-//     pages.className = 'pages';
-//     pages.textContent = `${myLibrary[i].pages} pages`;
-//     element.appendChild(pages);
-
-//     const readStatus = document.createElement('h3');
-//     readStatus.className = 'readStatus';
-//     readStatus.textContent = myLibrary[ i ].read;
-//     element.appendChild(readStatus);
-
-//     container.appendChild( element );
-//   }
-// }
-
-function displayBook(){
+function createBookCard(book){
 
   const element = document.createElement('div');
   element.className = 'bookCard';
 
   const title = document.createElement('h2');
   title.className = 'title';
-  title.textContent = document.getElementById('title').value;
+  title.textContent = book.title;
   element.appendChild(title);
 
   const author = document.createElement('h3');
   author.className = 'author';
-  author.textContent = document.getElementById('author').value;
+  author.textContent = book.author;
   element.appendChild(author);
 
   const pages = document.createElement('h3');
   pages.className = 'pages';
-  pages.textContent = `${document.getElementById('pages').value} pages`;
+  pages.textContent = `${book.pages} pages`;
   element.appendChild(pages);
 
   const readStatus = document.createElement('h3');
@@ -76,8 +59,7 @@ function displayBook(){
   readStatus.textContent = document.querySelector('input[name="read"]:checked').value;
   element.appendChild(readStatus);
 
-  container.appendChild( element );
-
+  bookGrid.appendChild(element);
 }
 
 function openTheForm() {
