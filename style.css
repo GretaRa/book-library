@@ -5,8 +5,33 @@
     --light-bg: #C2DBA9;
     --bright-color:#9BD463;
     --font-color: #fff;
+    --border-dark: #262b21;
     
     font-family: 'Quicksand', sans-serif;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 600,
+  'GRAD' 200,
+  'opsz' 40
+}
+
+.newBookBtn,
+.cancel,
+.add,
+input[type="checkbox"]{
+    cursor: pointer;
+}
+
+
+.cancel{
+    background-color: var(--main-color);
+    color: var(--font-color);
+    align-self: flex-end;
+    border: none;
+    
 }
 
 *{
@@ -85,6 +110,92 @@ header{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+}
+
+.formPopup{
+    position:fixed;
+    left: 50%;
+    top: 50%;
+    -ms-transform: translate(-50%,-50%);
+    -moz-transform:translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    background-color: var(--main-color);
+    border: var(--darkest-color) solid 1px;
+    border-radius: 10px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+    min-height: 350px;
+    padding: 15px;
+    font-size: 20px;
+    min-width: 300px;
+    gap: 10px;
+}
+
+.checkboxBox{
+    display: flex;
+    gap: 10px;
+}
+
+label[for=read]{
+    font-weight: 600;
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    background-color: #fff;
+    margin: 0;
+    font: inherit;
+    color: currentColor;
+    width: 1em;
+    height: 1em;
+    border: 0.15em solid currentColor;
+    border-radius: 0.15em;
+    transform: translateY(-0.1em);
+    display: grid;
+    place-content: center;
+  }
+
+input[type="checkbox"]::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em var(--darkest-color);
+    transform-origin: bottom left;
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+  
+input[type="checkbox"]:checked::before {
+    transform: scale(1);
+}
+
+input[type="checkbox"]:focus {
+    outline: max(2px, 0.15em) solid currentColor;
+    outline-offset: max(2px, 0.15em);
+  }
+
+form input{
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.add{
+    padding: 8px;
+    background-color: var(--medium-color);
+    border: var(--medium-color);
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--font-color);
+    align-self: stretch;
 }
 
 footer{

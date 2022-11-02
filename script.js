@@ -8,6 +8,7 @@
 //Select DOM
 const bookGrid = document.querySelector('.book-grid');
 const form = document.querySelector('.formContainer');
+let checkbox = document.getElementById('read');
 
 let myLibrary = [];
 
@@ -25,8 +26,9 @@ function addBookToLibrary() {
       title.value, 
       author.value, 
       pages.value,
-      read.value
+      checkbox.checked
     ));
+    console.log(book.read);
     closeTheForm()
     displayBooks();
     form.reset();
@@ -83,5 +85,6 @@ function displayEmpty(){
   document.getElementById("empty").style.display = "none";
   } else {
     document.getElementById("empty").style.display = "block";
+    
   }
 }
