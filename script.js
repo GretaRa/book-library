@@ -1,14 +1,13 @@
 //TODO
 //Fix read status(change to checkbox?)
 //add checkbox to change read status
-//add style to form
 //add delete book button
 
 
 //Select DOM
 const bookGrid = document.querySelector('.book-grid');
 const form = document.querySelector('.formContainer');
-let checkbox = document.getElementById('read');
+let checkboxForm = document.getElementById('read');
 
 let myLibrary = [];
 
@@ -22,13 +21,12 @@ function Book(title, author, pages, read){
 function addBookToLibrary() {
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    let book = myLibrary.push(new Book(
+    let book = myLibrary.unshift(new Book(
       title.value, 
       author.value, 
       pages.value,
-      checkbox.checked
+      checkboxForm.checked
     ));
-    console.log(book.read);
     closeTheForm()
     displayBooks();
     form.reset();
@@ -46,8 +44,17 @@ function displayBooks(){
 function createBookCard(book){
 
   const element = document.createElement('div');
-  element.className = 'bookCard';
+  element.classList.add('bookCard', 'bookCard');
 
+  const removeCard = document.createElement('button');
+  removeCard.classList.add('btn', 'btnRemove');
+  element.appendChild(removeCard);
+  const closeIcon = document.createElement('span');
+  closeIcon.classList.add('material-symbols-outlined');
+  closeIcon.textContent = 'close';
+  removeCard.appendChild(closeIcon);
+
+  
   const title = document.createElement('h2');
   title.className = 'title';
   title.textContent = book.title;
@@ -63,13 +70,33 @@ function createBookCard(book){
   pages.textContent = `${book.pages} pages`;
   element.appendChild(pages);
 
-  const readStatus = document.createElement('h3');
-  readStatus.className = 'readStatus';
-  readStatus.textContent = document.querySelector('input[name="read"]:checked').value;
-  element.appendChild(readStatus);
+  const readStatusBox = document.createElement('div');
+  readStatusBox.className = 'readStatusBox';
+  const readStatus = document.createElement('input');
+  readStatus.setAttribute('id', 'readDisplay');
+  readStatus.setAttribute('type', 'checkbox');
+  readStatus.checked = book.read;
+
+  const readLabel = document.createElement('label');
+  readLabel.setAttribute('for', 'readDisplay');
+  readLabel.textContent = 'Finished reading';
+  
+  element.appendChild(readStatusBox);
+  readStatusBox.appendChild(readStatus);
+  readStatusBox.appendChild(readLabel);
 
   bookGrid.appendChild(element);
+
+  removeCard.addEventListener('click', function () { 
+    let index = myLibrary.indexOf(book);
+    myLibrary.splice(index,1); 
+    element.remove();
+    displayEmpty();
+    console.log(myLibrary);
+  });
 }
+
+
 
 function openTheForm() {
   document.getElementById("popupForm").style.display = "block";
@@ -82,9 +109,11 @@ function closeTheForm() {
 
 function displayEmpty(){
   if (myLibrary.length !== 0){
-  document.getElementById("empty").style.display = "none";
+    document.getElementById("empty").style.display = "none";
+    
   } else {
     document.getElementById("empty").style.display = "block";
     
   }
 }
+displayEmpty()
