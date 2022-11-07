@@ -38,7 +38,6 @@ function displayBooks(){
 }
 
 function createBookCard(book){
-
   const element = document.createElement('div');
   element.classList.add('bookCard', 'bookCard');
 
@@ -50,7 +49,6 @@ function createBookCard(book){
   closeIcon.textContent = 'close';
   removeCard.appendChild(closeIcon);
 
-  
   const title = document.createElement('h2');
   title.className = 'title';
   title.textContent = book.title;
@@ -102,10 +100,10 @@ function closeTheForm() {
 }
 
 function displayEmpty(){
-  if (myLibrary.length !== 0){
-    document.getElementById("empty").style.display = "none";
-  } else {
+  if (myLibrary.length === 0){
     document.getElementById("empty").style.display = "block";
+  } else {
+    document.getElementById("empty").style.display = "none";
   }
 }
 displayEmpty();
