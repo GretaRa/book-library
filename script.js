@@ -1,16 +1,12 @@
-//TODO
-//Fix read status(change to checkbox?)
-//add checkbox to change read status
-//add delete book button
-
-
 //Select DOM
 const bookGrid = document.querySelector('.book-grid');
 const form = document.querySelector('.formContainer');
 let checkboxForm = document.getElementById('read');
 
+//Create empty library array
 let myLibrary = [];
 
+//Object constructor
 function Book(title, author, pages, read){
     this.title = title;
     this.author = author;
@@ -21,7 +17,7 @@ function Book(title, author, pages, read){
 function addBookToLibrary() {
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    let book = myLibrary.unshift(new Book(
+    myLibrary.unshift(new Book(
       title.value, 
       author.value, 
       pages.value,
@@ -35,7 +31,7 @@ function addBookToLibrary() {
 addBookToLibrary();
 
 function displayBooks(){
-  bookGrid.innerHTML = ''
+  bookGrid.innerHTML = '';
   for (let i = 0; i < myLibrary.length; i++){
     createBookCard(myLibrary[i]);
   }
@@ -96,24 +92,20 @@ function createBookCard(book){
   });
 }
 
-
-
 function openTheForm() {
   document.getElementById("popupForm").style.display = "block";
 }
 
 function closeTheForm() {
   document.getElementById("popupForm").style.display = "none";
-  displayEmpty()
+  displayEmpty();
 }
 
 function displayEmpty(){
   if (myLibrary.length !== 0){
     document.getElementById("empty").style.display = "none";
-    
   } else {
     document.getElementById("empty").style.display = "block";
-    
   }
 }
-displayEmpty()
+displayEmpty();
