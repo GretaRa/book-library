@@ -198,6 +198,7 @@ input[type="checkbox"]:focus {
 }
 
 /* Display for added books */
+
 .book-grid{
     padding-top: 20px;
     display: grid;
@@ -220,6 +221,28 @@ input[type="checkbox"]:focus {
 
 .btnRemove{
     background-color: var(--medium-color);
+}
+
+.title{
+    font-size: 40px;
+}
+
+.pages{
+    font-size: 20px;
+}
+
+.readStatusBox{
+    display: flex;
+    gap: 10px;
+    font-size: 20px;
+}
+.pages,
+label[for=readDisplay]{
+    font-weight: 500;
+}
+
+#readDisplay{
+    transform: translateY(0.15em);
 }
 
 /* Footer styling */

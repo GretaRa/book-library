@@ -58,7 +58,7 @@ function createBookCard(book){
 
   const author = document.createElement('h3');
   author.className = 'author';
-  author.textContent = book.author;
+  author.textContent = `by ${book.author}`;
   element.appendChild(author);
 
   const pages = document.createElement('h3');
