@@ -7,12 +7,21 @@ let checkboxForm = document.getElementById('read');
 let myLibrary = [];
 
 //Object constructor
-function Book(title, author, pages, read){
+class Book {
+  constructor (title, author, pages, read){
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.read = read;
+  }
 }
+//Old contructor
+// function Book(title, author, pages, read){
+//     this.title = title;
+//     this.author = author;
+//     this.pages = pages;
+//     this.read = read;
+// }
 
 function addBookToLibrary() {
   form.addEventListener('submit', (e) => {
