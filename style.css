@@ -1,73 +1,69 @@
-:root{
-    --main-color: #3E5428;
-    --darkest-color:#4A5441;
-    --medium-color:#76A14C;
-    --light-bg: #C2DBA9;
-    --bright-color:#9BD463;
-    --white-font-color: #fff;
-    --border-dark: #262b21;
-    
-    font-family: 'Quicksand', Helvetica, sans-serif;
+:root {
+	--main-color: #3e5428;
+	--darkest-color: #4a5441;
+	--medium-color: #76a14c;
+	--light-bg: #c2dba9;
+	--bright-color: #9bd463;
+	--white-font-color: #fff;
+	--border-dark: #262b21;
+
+	font-family: "Quicksand", Helvetica, sans-serif;
 }
 /* General styles */
-*{
-    margin: 0;
-    padding: 0;
+* {
+	margin: 0;
+	padding: 0;
 }
 
-body{
-    height: 100vh;
-    display: grid;
-    grid-template-rows: 1fr 4fr 50px;
-    color: var(--white-font-color);
+body {
+	height: 100vh;
+	display: grid;
+	grid-template-rows: 1fr 4fr 50px;
+	color: var(--white-font-color);
 }
 
 .material-symbols-outlined {
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 600,
-  'GRAD' 200,
-  'opsz' 40;
+	font-variation-settings: "FILL" 0, "wght" 600, "GRAD" 200, "opsz" 40;
 }
 
 /* Close buttons general styling */
 
 .cancel,
-.btnRemove{
-    color: var(--white-font-color);
-    align-self: flex-end;
-    border: none;
+.btnRemove {
+	color: var(--white-font-color);
+	align-self: flex-end;
+	border: none;
 }
 
 /* Header styling */
-header{
-    font-size: 25px;
-    background-color: var(--main-color);
-    text-align: center;
-    padding: 50px;
+header {
+	font-size: 25px;
+	background-color: var(--main-color);
+	text-align: center;
+	padding: 50px;
 }
 
 /* Container and add book button styling */
 
-.container{
-    background-color: var(--light-bg);
-    padding: 20px;
+.container {
+	background-color: var(--light-bg);
+	padding: 20px;
 }
 
-.newBookBtn{
-    background-color: var(--darkest-color);
-    padding: 4px 20px;
-    font-size: 50px;
-    font-weight: 800;
-    border-radius: 40px;
-    color: var(--white-font-color);
-    border: 1px solid var(--darkest-color);
-    box-shadow: 3px 4px 5px 0px var(--darkest-color);
-    font-family: 'Quicksand', Helvetica, sans-serif;
+.newBookBtn {
+	background-color: var(--darkest-color);
+	padding: 4px 20px;
+	font-size: 50px;
+	font-weight: 800;
+	border-radius: 40px;
+	color: var(--white-font-color);
+	border: 1px solid var(--darkest-color);
+	box-shadow: 3px 4px 5px 0px var(--darkest-color);
+	font-family: "Quicksand", Helvetica, sans-serif;
 }
 
-.newBookBtn:active{
-    box-shadow: inset 3px 4px 5px 0px rgb(46, 44, 44);
+.newBookBtn:active {
+	box-shadow: inset 3px 4px 5px 0px rgb(46, 44, 44);
 }
 
 /* Cursor is pointer on interactive elements */
@@ -76,181 +72,181 @@ header{
 .cancel,
 .add,
 .btnRemove,
-input[type="checkbox"]{
-    cursor: pointer;
+input[type="checkbox"] {
+	cursor: pointer;
 }
 
 /* Form styling */
 
-.formPopup{
-    /* Form not visible until a button is pressed */
-    display: none;
-    position: fixed;
-    left: 45%;
-    top: 5%;
-    transform: translate(-50%, 5%);
-    border: 3px solid #999999;
-    z-index: 9;
-    /* Form position  */
-    position:fixed;
-    left: 50%;
-    top: 50%;
-    -ms-transform: translate(-50%,-50%);
-    -moz-transform:translate(-50%,-50%);
-    -webkit-transform: translate(-50%,-50%);
-    transform: translate(-50%,-50%);
-    /* Styling */
-    background-color: var(--main-color);
-    border: var(--darkest-color) solid 1px;
-    border-radius: 10px;
+.formPopup {
+	/* Form not visible until a button is pressed */
+	display: none;
+	position: fixed;
+	left: 45%;
+	top: 5%;
+	transform: translate(-50%, 5%);
+	border: 3px solid #999999;
+	z-index: 9;
+	/* Form position  */
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	-ms-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	/* Styling */
+	background-color: var(--main-color);
+	border: var(--darkest-color) solid 1px;
+	border-radius: 10px;
 }
 
-form{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    min-height: 350px;
-    padding: 15px;
-    font-size: 20px;
-    min-width: 300px;
-    gap: 15px;
+form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+	min-height: 350px;
+	padding: 15px;
+	font-size: 20px;
+	min-width: 300px;
+	gap: 15px;
 }
 
-form label{
-    align-self: flex-start;
-    padding-left: 35px;
+form label {
+	align-self: flex-start;
+	padding-left: 35px;
 }
 
-form input{
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 5px;
+form input {
+	padding: 10px;
+	font-size: 16px;
+	border-radius: 5px;
 }
 
-label[for=read]{
-    font-weight: 600;
+label[for="read"] {
+	font-weight: 600;
 }
 
 input[type="checkbox"] {
-    appearance: none;
-    background-color: #fff;
-    margin: 0;
-    font: inherit;
-    color: currentColor;
-    width: 1em;
-    height: 1em;
-    border: 0.15em solid currentColor;
-    border-radius: 0.15em;
-    transform: translateY(-0.1em);
-    display: grid;
-    place-content: center;
+	appearance: none;
+	background-color: #fff;
+	margin: 0;
+	font: inherit;
+	color: currentColor;
+	width: 1em;
+	height: 1em;
+	border: 0.15em solid currentColor;
+	border-radius: 0.15em;
+	transform: translateY(-0.1em);
+	display: grid;
+	place-content: center;
 }
 
 input[type="checkbox"]::before {
-    content: "";
-    width: 0.65em;
-    height: 0.65em;
-    transform: scale(0);
-    transition: 120ms transform ease-in-out;
-    box-shadow: inset 1em 1em var(--darkest-color);
-    transform-origin: bottom left;
-    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+	content: "";
+	width: 0.65em;
+	height: 0.65em;
+	transform: scale(0);
+	transition: 120ms transform ease-in-out;
+	box-shadow: inset 1em 1em var(--darkest-color);
+	transform-origin: bottom left;
+	clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
 }
-  
+
 input[type="checkbox"]:checked::before {
-    transform: scale(1);
+	transform: scale(1);
 }
 
 input[type="checkbox"]:focus {
-    outline: max(2px, 0.15em) solid currentColor;
-    outline-offset: max(2px, 0.15em);
+	outline: max(2px, 0.15em) solid currentColor;
+	outline-offset: max(2px, 0.15em);
 }
 
-.cancel{
-    background-color: var(--main-color);
+.cancel {
+	background-color: var(--main-color);
 }
 
-.checkboxBox{
-    display: flex;
-    gap: 10px;
+.checkboxBox {
+	display: flex;
+	gap: 10px;
 }
 
-.add{
-    padding: 8px;
-    background-color: var(--medium-color);
-    border: var(--medium-color);
-    border-radius: 10px;
-    font-size: 18px;
-    font-weight: 600;
-    color: var(--white-font-color);
-    align-self: stretch;
+.add {
+	padding: 8px;
+	background-color: var(--medium-color);
+	border: var(--medium-color);
+	border-radius: 10px;
+	font-size: 18px;
+	font-weight: 600;
+	color: var(--white-font-color);
+	align-self: stretch;
 }
 
 /* Display when no books addeed */
 
-#empty{
-    padding-top: 50px;
-    font-size: 40px;
-    font-weight: 500;
-    text-align: center;
-    color: black;
+#empty {
+	padding-top: 50px;
+	font-size: 40px;
+	font-weight: 500;
+	text-align: center;
+	color: black;
 }
 
 /* Display for added books */
 
-.book-grid{
-    padding-top: 20px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 400px));
-    gap: 30px;
-    justify-content: center;
+.book-grid {
+	padding-top: 20px;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 400px));
+	gap: 30px;
+	justify-content: center;
 }
 
-.bookCard{
-    background-color: var(--medium-color);
-    border-radius: 10px;
-    min-height: 150px;
-    box-shadow: 3px 4px 5px 0px var(--main-color);
-    border-left: 7px solid var(--main-color);
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+.bookCard {
+	background-color: var(--medium-color);
+	border-radius: 10px;
+	min-height: 150px;
+	box-shadow: 3px 4px 5px 0px var(--main-color);
+	border-left: 7px solid var(--main-color);
+	padding: 15px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
 }
 
-.btnRemove{
-    background-color: var(--medium-color);
+.btnRemove {
+	background-color: var(--medium-color);
 }
 
-.title{
-    font-size: 40px;
+.title {
+	font-size: 40px;
 }
 
-.pages{
-    font-size: 20px;
+.pages {
+	font-size: 20px;
 }
 
-.readStatusBox{
-    display: flex;
-    gap: 10px;
-    font-size: 20px;
+.readStatusBox {
+	display: flex;
+	gap: 10px;
+	font-size: 20px;
 }
 .pages,
-label[for=readDisplay]{
-    font-weight: 500;
+label[for="readDisplay"] {
+	font-weight: 500;
 }
 
-#readDisplay{
-    transform: translateY(0.15em);
+#readDisplay {
+	transform: translateY(0.15em);
 }
 
 /* Footer styling */
 
-footer{
-    background-color: var(--darkest-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: 500;
+footer {
+	background-color: var(--darkest-color);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-weight: 500;
 }
